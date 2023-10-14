@@ -10,3 +10,5 @@ Youtube watch history is apart of the google takeout feature and the goal of thi
 Newer takeout data saves the export as watch-history.html which janpaul123 already wrote code for https://github.com/janpaul123/youtube-takeout-to-watchmarker
 
 older takeout data stores the history as watch-history.json which is the goal for this repo. As it sits currently the data is extracted from the json, reorganized, encoded base64, then exported as a .database file. The file can be imported into watchmarker but it doesn't save. My guess is im just missing a comma or something somewhere but it's late I can can't figure it out for the life of me. I'll upload the cutdown sample data json if anyone wants to give it a shot
+
+#test commit
