@@ -1,136 +1,65 @@
-[ {
-  "contentDetails" : {
-    "videoId" : "3mNYrxcZ0X8"
-  },
-  "etag" : "\"5C5HHOaBSHC5ZXfkrT4ZlRCi01A/dRMQIvQtTO-mvjH6490gxWD9DDc\"",
-  "id" : "SExvNXVZY1FhZ0RIdjNKSUhFU0JBbV9RLjNtTllyeGNaMFg4",
-  "kind" : "youtube#playlistItem",
-  "snippet" : {
-    "channelId" : "UCo5uYcQagDHv3JIHESBAm_Q",
-    "channelTitle" : "Jeff M",
-    "description" : "We are FINALLY kitting out our conference room, one of the final steps in our big move! New chairs, projector, screen and more!\n\nFeenix giveaway link: http://linustechtips.com/main/topic/478730-feenix-collection-giveaway/\n\nCooler Master link: http://linustechtips.com/main/topic/446763-cooler-master-mastercase-5-pre-roll-landing-page/\n\nCarada Screens like the one we showed off can be found here: http://www.carada.com/\n\nPricing & discussion: http://linustechtips.com/main/topic/478719-conference-room-updates-acer-projector/\n\nSupport us: http://linustechtips.com/main/topic/75969-support-linus-tech-tips-our-affiliates-and-sponsors/\n\nJoin our community forum: http://bit.ly/ZkLvE7\n\nhttps://twitter.com/linustech\n\nhttp://www.facebook.com/LinusTech\n\nIntro Screen Music Credit:\nTitle: Laszlo - Supernova\nVideo Link: https://www.youtube.com/watch?v=PKfxmFU3lWY\niTunes Download Link: https://itunes.apple.com/us/album/supernova/id936805712\nArtist Link: https://soundcloud.com/laszlomusic\n\nOutro Screen Music Credit: Approaching Nirvana - Sugar High http://www.youtube.com/approachingnirvana\n\nTitle: Fractal - Omni\nVideo Link: https://www.youtube.com/watch?v=Az12kNlqjmE\niTunes Download Link: https://itunes.apple.com/us/album/gaia/id1041207697\nLabel Channel: http://www.youtube.com/monstercat\n\nTitle: Volant - Minty\nVideo Link: https://www.youtube.com/watch?v=7BhYmwFSOas\niTunes Download Link: https://itunes.apple.com/ca/album/minty-single/id962539063\nLabel Channel: http://www.youtube.com/monstercat",
-    "playlistId" : "HLo5uYcQagDHv3JIHESBAm_Q",
-    "position" : 0,
-    "publishedAt" : "2016-10-06T22:03:44.000Z",
-    "resourceId" : {
-      "kind" : "youtube#video",
-      "videoId" : "3mNYrxcZ0X8"
-    },
-    "thumbnails" : {
-      "default" : {
-        "height" : 90,
-        "url" : "https://i.ytimg.com/vi/3mNYrxcZ0X8/default.jpg",
-        "width" : 120
-      },
-      "high" : {
-        "height" : 360,
-        "url" : "https://i.ytimg.com/vi/3mNYrxcZ0X8/hqdefault.jpg",
-        "width" : 480
-      },
-      "medium" : {
-        "height" : 180,
-        "url" : "https://i.ytimg.com/vi/3mNYrxcZ0X8/mqdefault.jpg",
-        "width" : 320
-      },
-      "standard" : {
-        "height" : 480,
-        "url" : "https://i.ytimg.com/vi/3mNYrxcZ0X8/sddefault.jpg",
-        "width" : 640
-      }
-    },
-    "title" : "Pimp My Conference Room - Acer Projector, Carada Screen & More!"
-  },
-  "status" : {
-    "privacyStatus" : "public"
-  }
-}, {
-  "contentDetails" : {
-    "videoId" : "QJ7CiqJwbBQ"
-  },
-  "etag" : "\"5C5HHOaBSHC5ZXfkrT4ZlRCi01A/SexAXxYKZJ-UaI2jc3ElB20xDnQ\"",
-  "id" : "SExvNXVZY1FhZ0RIdjNKSUhFU0JBbV9RLlFKN0NpcUp3YkJR",
-  "kind" : "youtube#playlistItem",
-  "snippet" : {
-    "channelId" : "UCo5uYcQagDHv3JIHESBAm_Q",
-    "channelTitle" : "Jeff M",
-    "description" : "It has been a while, and we have certainly seen the requests, so here is a little moving vlog action to satisfy dat hunger...\n\nCrunchyroll link: http://crunchyroll.com/linus\n\nCooler Master link: http://linustechtips.com/main/topic/446763-cooler-master-mastercase-5-pre-roll-landing-page/\n\nPricing & discussion: http://linustechtips.com/main/topic/492705-moving-vlog-day-12/\n\nSupport us: http://linustechtips.com/main/topic/75969-support-linus-tech-tips-our-affiliates-and-sponsors/\n\nJoin our community forum: http://bit.ly/ZkLvE7 \n\nhttps://twitter.com/linustech \n\nhttp://www.facebook.com/LinusTech\n\nDivertimento K131 by Kevin MacLeod is licensed under a Creative Commons Attribution license (https://creativecommons.org/licenses/by/4.0/) \nSource: http://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100533 \nArtist: http://incompetech.com/ \n\nBushwick Tarantella by Kevin MacLeod is licensed under a Creative Commons Attribution license (https://creativecommons.org/licenses/by/4.0/) \nSource: http://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300002 \nArtist: http://incompetech.com/ \n\nTitle: Grabbitz - Ballin’ \nVideo Link: https://www.youtube.com/watch?v=u0RFyn2-tu8 \niTunes Download Link: https://itunes.apple.com/us/album/ballin-dont-stop-single/id1037468707 \nLabel Channel: http://www.youtube.com/monstercat\n\nIntro Screen Music Credit: \nTitle: Laszlo - Supernova \nVideo Link: https://www.youtube.com/watch?v=PKfxmFU3lWY \niTunes Download Link: https://itunes.apple.com/us/album/supernova/id936805712 \nArtist Link: https://soundcloud.com/laszlomusic\n\nOutro Screen Music Credit: Approaching Nirvana - Sugar High http://www.youtube.com/approachingnirvana",
-    "playlistId" : "HLo5uYcQagDHv3JIHESBAm_Q",
-    "position" : 1,
-    "publishedAt" : "2016-10-06T21:28:56.000Z",
-    "resourceId" : {
-      "kind" : "youtube#video",
-      "videoId" : "QJ7CiqJwbBQ"
-    },
-    "thumbnails" : {
-      "default" : {
-        "height" : 90,
-        "url" : "https://i.ytimg.com/vi/QJ7CiqJwbBQ/default.jpg",
-        "width" : 120
-      },
-      "high" : {
-        "height" : 360,
-        "url" : "https://i.ytimg.com/vi/QJ7CiqJwbBQ/hqdefault.jpg",
-        "width" : 480
-      },
-      "medium" : {
-        "height" : 180,
-        "url" : "https://i.ytimg.com/vi/QJ7CiqJwbBQ/mqdefault.jpg",
-        "width" : 320
-      },
-      "standard" : {
-        "height" : 480,
-        "url" : "https://i.ytimg.com/vi/QJ7CiqJwbBQ/sddefault.jpg",
-        "width" : 640
-      }
-    },
-    "title" : "The Big Move Day 12+ - A truly MOVE-ing experience ( ͡° ͜ʖ ͡°)"
-  },
-  "status" : {
-    "privacyStatus" : "public"
-  }
-}, {
-  "contentDetails" : {
-    "videoId" : "yaNYZhVZK_E"
-  },
-  "etag" : "\"5C5HHOaBSHC5ZXfkrT4ZlRCi01A/Vorgdw4K2i6moLWuOydk7Fslip0\"",
-  "id" : "SExvNXVZY1FhZ0RIdjNKSUhFU0JBbV9RLnlhTllaaFZaS19F",
-  "kind" : "youtube#playlistItem",
-  "snippet" : {
-    "channelId" : "UCo5uYcQagDHv3JIHESBAm_Q",
-    "channelTitle" : "Jeff M",
-    "description" : "As the office gets closer to completion, the team gets up to the usual shenanigans. How many shenanigans? All of the shenanigans...\n\nCooler Master link: http://linustechtips.com/main/topic/446763-cooler-master-mastercase-5-pre-roll-landing-page/\n\nPricing & discussion: http://linustechtips.com/main/topic/450828-the-big-move-day-8-11/\n\nSupport us: http://linustechtips.com/main/topic/75969-support-linus-tech-tips-our-affiliates-and-sponsors/\n\nJoin our community forum: http://bit.ly/ZkLvE7 \n\nhttps://twitter.com/linustech \n\nhttp://www.facebook.com/LinusTech\n\nIntro Screen Music Credit: \nTitle: Laszlo - Supernova \nVideo Link: https://www.youtube.com/watch?v=PKfxmFU3lWY \niTunes Download Link: https://itunes.apple.com/us/album/supernova/id936805712 \nArtist Link: https://soundcloud.com/laszlomusic\n\nOutro Screen Music Credit: Approaching Nirvana - Sugar High http://www.youtube.com/approachingnirvana",
-    "playlistId" : "HLo5uYcQagDHv3JIHESBAm_Q",
-    "position" : 2,
-    "publishedAt" : "2016-10-06T21:17:08.000Z",
-    "resourceId" : {
-      "kind" : "youtube#video",
-      "videoId" : "yaNYZhVZK_E"
-    },
-    "thumbnails" : {
-      "default" : {
-        "height" : 90,
-        "url" : "https://i.ytimg.com/vi/yaNYZhVZK_E/default.jpg",
-        "width" : 120
-      },
-      "high" : {
-        "height" : 360,
-        "url" : "https://i.ytimg.com/vi/yaNYZhVZK_E/hqdefault.jpg",
-        "width" : 480
-      },
-      "medium" : {
-        "height" : 180,
-        "url" : "https://i.ytimg.com/vi/yaNYZhVZK_E/mqdefault.jpg",
-        "width" : 320
-      },
-      "standard" : {
-        "height" : 480,
-        "url" : "https://i.ytimg.com/vi/yaNYZhVZK_E/sddefault.jpg",
-        "width" : 640
-      }
-    },
-    "title" : "The Big Move Day 8-11 - \"Don't put that in the video\""
-  },
-  "status" : {
-    "privacyStatus" : "public"
-  }
-} ]
+[{
+  "header": "YouTube",
+  "title": "Watched アイヌ語の勉強法をご紹介します！",
+  "titleUrl": "https://www.youtube.com/watch?v\u003dY6VSGTC1n1g",
+  "subtitles": [{
+    "name": "はちあ",
+    "url": "https://www.youtube.com/channel/UC6s4Xu10_laCZMuahny8kUA"
+  }],
+  "time": "2025-01-23T15:40:16.600Z",
+  "products": ["YouTube"],
+  "activityControls": ["YouTube watch history"]
+},{
+  "header": "YouTube",
+  "title": "Viewed 👉https://youtu.be/sy1_WX-nvoM\r\n「詐欺師にとっても便利」急増“QRコード悪用”詐欺、フードコートの注文も要注意、偽チラシで10万円被害も【Nスタ解説】（2025年1月21日 配信）\r\n\r\n様々な場面での利用が広がっているQRコード。いまその悪用が問題になっています。チラシやネット通販の注文を通じて偽のQRコードに誘導。金銭や個人情報を盗み取る詐欺が急増しています。その巧妙な手口を取材しました。",
+  "titleUrl": "https://www.youtube.com/post/UgkxsmO11W1xcb7O7JNTqEDg7PUhGm1GZ6SA",
+  "subtitles": [{
+    "name": "TBS NEWS DIG Powered by JNN",
+    "url": "https://www.youtube.com/channel/UC6AG81pAkf6Lbi_1VC5NmPA"
+  }],
+  "time": "2025-01-23T15:38:25.458Z",
+  "products": ["YouTube"],
+  "activityControls": ["YouTube watch history"]
+},{
+  "header": "YouTube",
+  "title": "Watched お前はまだ平仮名を知らない",
+  "titleUrl": "https://www.youtube.com/watch?v\u003dCKq3ZLn_kf8",
+  "subtitles": [{
+    "name": "け゚とま-ngethoma",
+    "url": "https://www.youtube.com/channel/UCLreIXyMtLaFtVYvg2dCbLQ"
+  }],
+  "time": "2024-01-01T15:23:37.426Z",
+  "products": ["YouTube"],
+  "activityControls": ["YouTube watch history"]
+},{
+  "header": "YouTube",
+  "title": "Watched EN_D10_AW22_V2_16x9_CHOICE_RMKT.mp4",
+  "titleUrl": "https://www.youtube.com/watch?v\u003dl0Rn3AiFt7U",
+  "time": "2023-01-31T19:50:41.118Z",
+  "products": ["YouTube"],
+  "details": [{
+    "name": "From Google Ads"
+  }],
+  "activityControls": ["Web \u0026 App Activity", "YouTube watch history"]
+},{
+  "header": "YouTube",
+  "title": "Watched Herbie Hancock - Watermelon Man",
+  "titleUrl": "https://www.youtube.com/watch?v\u003dRzPZvKSdN7g",
+  "subtitles": [{
+    "name": "Pat H",
+    "url": "https://www.youtube.com/channel/UCSi2zJo2BnLf-c-POiXJs2Q"
+  }],
+  "time": "2023-01-30T15:36:09.247Z",
+  "products": ["YouTube"],
+  "activityControls": ["YouTube watch history"]
+},{
+  "header": "YouTube",
+  "title": "Visited https://clickserve.dartsearch.net/link/click?redacted",
+  "time": "2023-01-21T10:12:00.135Z",
+  "products": ["YouTube"],
+  "details": [{
+    "name": "From Google Ads"
+  }],
+  "activityControls": ["Web \u0026 App Activity", "YouTube watch history", "YouTube search history"]
+}
+]
