@@ -63,7 +63,7 @@
       }
 
       // Save the data
-      const blob = new Blob([Base64.encode(JSON.stringify(converted))], { type: 'text' });
+      const blob = new Blob([btoa(unescape(encodeURIComponent(JSON.stringify(converted))))], { type: 'text' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.innerHTML = "Download the file";
