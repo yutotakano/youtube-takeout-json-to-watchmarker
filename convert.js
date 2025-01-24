@@ -1,6 +1,10 @@
 const INPUT_FILE = "watch-history-2016.json"
 const OUTPUT_FILE = "watch-history.converted.database"
 
+/**
+ * A class representing a parsed watch history entry with only the metadata
+ * relevant for watchmarker.
+ */
 class WatchHistoryEntry {
   constructor(video_id, timestamp, title) {
     this.video_id = video_id
@@ -9,16 +13,29 @@ class WatchHistoryEntry {
   }
 }
 
+/**
+ * Parser for the old playlist history format (circa 2016?). The only example
+ * available is from 2016 and is saved as watch-history-2016.json in this
+ * repository.
+ */
 class PlaylistHistoryFormatParser {
+  /**
+   * Parses an entry in the old playlist history format of watch history. This
+   * format does not have a timestamp so the converted entry will have the
+   * current timestamp as the watch timestamp instead.
+   * @param {object} item An array item from the input JSON
+   * @param {*} logFunction Log function that accepts a severity and a message
+   * @returns A parsed WatchHistoryEntry
+   */
   static processEntry(item, logFunction) {
     if (!item.hasOwnProperty("contentDetails")) {
-      console.log("Problematic entry:", item)
+      logFunction("info", "Problematic entry: " + JSON.stringify(item))
       throw new Error("contentDetails not in item. Please file a bug report!")
     }
 
     let videoId = item["contentDetails"]["videoId"]
     // The old format does not have a timestamp (it's more like a playlist)
-    // so we will use the current timestamp instead
+    // so we will use the current time
     let timestamp = Date.now()
     let title = item["snippet"]["title"]
 
@@ -26,7 +43,16 @@ class PlaylistHistoryFormatParser {
   }
 }
 
+/**
+ * Parser for the new watch history format. This format is the one that is
+ * currently used by YouTube and is the one that is exported from Google Takeout.
+ */
 class NewFormatParser {
+  /**
+   * Parse the video ID from a YouTube URL.
+   * @param {string} url The contents of the "titleURL" field in the JSON
+   * @returns YouTube video ID or null if it couldn't be parsed
+   */
   static parseVideoId(url) {
     if (url.includes("https://www.youtube.com/watch?v=")) {
       return url.split("https://www.youtube.com/watch?v=")[1].split("&")[0]
@@ -37,16 +63,27 @@ class NewFormatParser {
     return null
   }
 
+  /**
+   * Parse a timestamp.
+   * @param {string} time The "time" field contents, e.g. "2023-11-18T20:51:04.917Z"
+   * @returns The timestamp in milliseconds since epoch
+   */
   static parseTime(time) {
     return new Date(time).getTime()
   }
 
+  /**
+   * Process an entry in the new watch history format.
+   * @param {object} item An array item from the input JSON
+   * @param {*} logFunction Log function that accepts a severity and a message
+   * @returns A parsed WatchHistoryEntry or null if the entry should be skipped
+   */
   static processEntry(item, logFunction) {
     if (
       item.hasOwnProperty("title") &&
       item["title"] == "Viewed Ads On YouTube Homepage"
     ) {
-      // Skip this because it's an entry for some reason??
+      // Skip this because ads are an entry for some reason??
       logFunction("info", `Skipping ad view entry on ${item["time"]}`)
       return null
     }
@@ -55,17 +92,20 @@ class NewFormatParser {
       item.hasOwnProperty("titleUrl") &&
       item["titleUrl"].includes("https://www.youtube.com/post/")
     ) {
-      // Skip if it's a view of a community post
+      // Skip if it's a view of a community post - there is no video ID
       logFunction("info", `Skipping community post view entry on ${item["time"]}`)
       return null
     }
 
     if (item.hasOwnProperty("title") && item["title"].startsWith("Visited ")) {
+      // Skip if it's a visit to a website - there is no video ID
       let domain = item["titleUrl"].split("://")[1].split("/")[0]
       logFunction("info", `Skipping website visit entry (to ${domain}) on ${item["time"]}`)
       return null
     }
 
+    // Just in case: handle the cases when the expected keys are not present
+    // and prompt for a bug report
     if (!item.hasOwnProperty("title")) {
       logFunction("info", "Problematic entry: " + JSON.stringify(item))
       throw new Error("title not in item. Please file a bug report!")
@@ -105,9 +145,21 @@ class NewFormatParser {
   }
 }
 
+/**
+ * 
+ * @param {object[]} input The JSON from the YouTube watch history export
+ * @param {*} logFunction Log function that accepts a severity and a message
+ * @returns An array of watchmarker-compatible watch history objects
+ */
 function convert(input, logFunction) {
+  // We'll store the results in an object (with the video ID as the key) instead
+  // of an array. This is so we can easily check for duplicates and increment
+  // the count of the video instead of adding a new entry.
+  // At the end, we'll convert it back to an array since that's what watchmarker
+  // expects.
   let converted = {}
 
+  // Keep track of how many entries were skipped so we can log them at the end
   let skipped = 0
   let skipped_due_to_duplicate = 0
 
@@ -162,70 +214,12 @@ function convert(input, logFunction) {
 }
 
 /**
-*  Base64 encode function courtesy of: http://www.webtoolkit.info/
-**/
-var Base64 = {
-  // private property
-  _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-
-  // public method for encoding
-  encode : function (input) {
-      var output = "";
-      var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
-      var i = 0;
-
-      input = Base64._utf8_encode(input);
-
-      while (i < input.length) {
-
-          chr1 = input.charCodeAt(i++);
-          chr2 = input.charCodeAt(i++);
-          chr3 = input.charCodeAt(i++);
-
-          enc1 = chr1 >> 2;
-          enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
-          enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
-          enc4 = chr3 & 63;
-
-          if (isNaN(chr2)) {
-              enc3 = enc4 = 64;
-          } else if (isNaN(chr3)) {
-              enc4 = 64;
-          }
-
-          output = output +
-          this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
-          this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
-      }
-      return output;
-  },
-
-  // private method for UTF-8 encoding
-  _utf8_encode : function (string) {
-      string = string.replace(/\r\n/g,"\n");
-      var utftext = "";
-
-      for (var n = 0; n < string.length; n++) {
-
-          var c = string.charCodeAt(n);
-
-          if (c < 128) {
-              utftext += String.fromCharCode(c);
-          }
-          else if((c > 127) && (c < 2048)) {
-              utftext += String.fromCharCode((c >> 6) | 192);
-              utftext += String.fromCharCode((c & 63) | 128);
-          }
-          else {
-              utftext += String.fromCharCode((c >> 12) | 224);
-              utftext += String.fromCharCode(((c >> 6) & 63) | 128);
-              utftext += String.fromCharCode((c & 63) | 128);
-          }
-      }
-      return utftext;
-  },
-}
-
+ * Logger function to be used with the conversion function. This function is
+ * for logging messages to the console, and is primarily for when the script
+ * is run directly with Node.js.
+ * @param {string} severity Severity of the log message
+ * @param {string} message Log message
+ */
 function consoleLogger(severity, message) {
   if (severity == "error") {
     console.error(`[${severity}] ${message}`)
@@ -235,16 +229,17 @@ function consoleLogger(severity, message) {
 }
 
 // If this script is run directly with node, read the input file and
-// run the conversion
+// run the conversion. We detect this by checking if the require.main
+// module is this module.
 if (typeof require !== 'undefined' && require !== undefined && require.main == module) {
   let fs = require("fs")
 
   // Decode input file as base64, read as JSON, and pass it to convert()
   let input = JSON.parse(fs.readFileSync(INPUT_FILE).toString())
   let output = convert(input, consoleLogger)
-  let base64_output = Buffer.from(JSON.stringify(output)).toString(
-    "base64"
-  )
+  // Like with the web version, we need to use the deprecated unescape function
+  // to make the output compatible with the watchmarker expected format
+  let base64_output = btoa(unescape(encodeURIComponent(JSON.stringify(output))))
 
   fs.writeFileSync(OUTPUT_FILE, base64_output)
 }

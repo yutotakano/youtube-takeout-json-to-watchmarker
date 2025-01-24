@@ -28,18 +28,28 @@
     </div>
 
     <script>
+      /**
+       * Function to log messages to the status box on the page. This will be
+       * passed to the conversion function (a.la. dependency injection) to be
+       * used for logging.
+       * @param {string} severity Can be "info" (default), "warn", or "error".
+       * @param {string|object} message Can be a string or an object.
+       */
       let webLog = function (severity, message) {
+        // Default to info if severity is not provided
         if (message === undefined) {
           message = severity;
           severity = "info";
         }
 
+        // Stringify the message if it's an object
         if (typeof message == "object") {
           message = JSON.stringify(message);
         }
 
         message = severity + ": " + message + "\n";
 
+        // Color-code the message based on severity
         if (severity === "error") {
             message = "<span style=\"color: red;\">" + message + "</span>";
         } else if (severity === 'warn') {
@@ -49,6 +59,7 @@
         document.getElementById("status").innerHTML += message;
       }
 
+      // Logic to convert the file on button press
       document.getElementById("convert").addEventListener("click", async () => {
         const file = document.getElementById("file").files[0];
         if (!file) {
@@ -59,21 +70,29 @@
         // Clear the logs
         document.getElementById("status").innerHTML = "";
 
-        // Read the file
+        // Read the file as JSON
         const text = await file.text();
         const data = JSON.parse(text);
 
-        // Convert the data
+        // Convert the YouTube array to the Watchmarker DB array. Logs will be
+        // written to the status box on the page. 
         let converted = {};
         try {
           converted = convert(data, webLog);
         } catch (error) {
+          // Any fatal errors will be thrown as an exception inside convert()
+          // so we catch and exit as necessary
           webLog("error", error);
           return;
         }
 
-        // Save the data
+        // Wrap the converted array into the format expected by the Watchmarker
+        // This is a base64-encoded, URI-encoded JSON string. We need to use the
+        // deprecated unescape() function to match watchmarker's logic of using
+        // escape() during an import.
         const blob = new Blob([btoa(unescape(encodeURIComponent(JSON.stringify(converted))))], { type: 'text' });
+
+        // Create a link to download the file, and also click it for convenience
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.innerHTML = "Download the file";
