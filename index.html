@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convert YouTube Takeout (JSON) to Watchmarker DB</title>
+  <script src="convert.js"></script>
+</head>
+<body>
+  <h1>Convert YouTube Takeout (JSON) to Watchmarker DB</h1>
+  <label for="file">Select the JSON file:</label>
+  <input type="file" id="file" accept=".json" />
+  <button id="convert">Convert</button>
+  <br>
+  <div style="width: 100%; box-sizing: border-box; background: #f0f0f0; padding: 1em; margin-top: 1em;">
+    Logs:
+    <pre><code id="status"></code></pre>
+  </div>
+
+  <script>
+    let webLog = function (severity, message) {
+      if (message === undefined) {
+        message = severity;
+        severity = "info";
+      }
+
+      if (typeof message == "object") {
+        message = JSON.stringify(message);
+      }
+
+      message = severity + ": " + message + "\n";
+
+      if (severity === "error") {
+          message = "<span style=\"color: red;\">" + message + "</span>";
+      } else if (severity === 'warn') {
+          message = "<span style=\"color: orange;\">" + message + "</span>";
+      }
+
+      document.getElementById("status").innerHTML += message;
+    }
+
+    document.getElementById("convert").addEventListener("click", async () => {
+      const file = document.getElementById("file").files[0];
+      if (!file) {
+        webLog("error", "Please select a file!");
+        return;
+      }
+
+      // Read the file
+      const text = await file.text();
+      const data = JSON.parse(text);
+
+      // Convert the data
+      let converted = {};
+      try {
+        converted = convert(data, webLog);
+      } catch (error) {
+        webLog("error", error);
+        return;
+      }
+
+      // Save the data
+      const blob = new Blob([Base64.encode(JSON.stringify(converted))], { type: 'text' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.innerHTML = "Download the file";
+      a.href = url;
+      a.download = "watch-history.converted.database";
+      a.click();
+
+      webLog("info", "Conversion complete! " + a.outerHTML);
+    });
+  </script>
+</body>
+</html>
