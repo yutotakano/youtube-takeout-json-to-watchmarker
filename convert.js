@@ -1,4 +1,4 @@
-const INPUT_FILE = "watch-history-2016.json"
+const INPUT_FILE = "watch-history.json"
 const OUTPUT_FILE = "watch-history.converted.database"
 
 /**
