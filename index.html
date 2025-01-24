@@ -9,15 +9,20 @@
   </head>
   <body>
     <h1>Convert YouTube Takeout (JSON) to Watchmarker DB</h1>
-    <p>
-      Steps for converting your YouTube watch history exported from Google Takeout into the Watchmarker DB format:
-      <ol>
-        <li>Export your YouTube watch history in JSON format using Google Takeout</li>
-        <li>Upload the JSON file below</li>
-        <li>Click the "Convert" button</li>
-        <li>Import the converted file into watchmarker</li>
-      </ol>
-    </p>
+    <div style="max-width: 700px">
+      <p>
+        This tool can convert your YouTube watch history as exported from Google Takeout (in JSON format) into the database format expected by Watchmarker's database. All code runs locally in the browser, and your watch history does not leave your device. If you are worried, you can inspect the code to see how it works (or ask a tech-savvy friend to do it for you).
+      </p>
+      <p>
+        Instructions:
+        <ol>
+          <li>Export your YouTube watch history in JSON format using Google Takeout</li>
+          <li>Upload the JSON file below</li>
+          <li>Click the "Convert" button</li>
+          <li>Import the converted file into watchmarker</li>
+        </ol>
+      </p>
+    </div>
     <label for="file">Select the JSON file:</label>
     <input type="file" id="file" accept=".json" />
     <button id="convert">Convert</button>
