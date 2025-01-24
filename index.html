@@ -46,6 +46,9 @@
         return;
       }
 
+      // Clear the logs
+      document.getElementById("status").innerHTML = "";
+
       // Read the file
       const text = await file.text();
       const data = JSON.parse(text);
