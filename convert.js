@@ -234,7 +234,7 @@ function consoleLogger(severity, message) {
 if (typeof require !== 'undefined' && require !== undefined && require.main == module) {
   let fs = require("fs")
 
-  // Decode input file as base64, read as JSON, and pass it to convert()
+  // Read input file as JSON, and pass it to convert()
   let input = JSON.parse(fs.readFileSync(INPUT_FILE).toString())
   let output = convert(input, consoleLogger)
   // Like with the web version, we need to use the deprecated unescape function
