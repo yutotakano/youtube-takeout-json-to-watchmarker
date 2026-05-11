@@ -1,5 +1,9 @@
 # YouTube Takeout (JSON) to Watchmarker DB
 
+[**Click here** 🡵](https://yutotakano.github.io/youtube-takeout-json-to-watchmarker/) to use the tool online!
+
+## Introduction
+
 [Youtube Watchmarker](https://github.com/sniklaus/youtube-watchmarker) is an awesome extension for marking youtube videos as watched. The extension stores all the watched videos in a database that can be exported and imported.
 
 When first installing the extension, it is useful to be able to migrate existing watch history data from YouTube. The script in this repository enables you to do this. The script was originally created by [Jeefongithub](https://github.com/Jeefongithub/youtube-takeout-json-to-watchmarker), which was inspired by the HTML version by [janpaul123](https://github.com/janpaul123/youtube-takeout-to-watchmarker). Modifications have been made to support data formats as recent as 2026/03.
